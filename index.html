@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhijith A — Full-Stack Developer & AI Integrations | Portfolio Deck</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Space Grotesk, Outfit, and Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            deck: {
+              wall: '#041316',
+              surface: '#08252b',
+              card: '#0a323b',
+              cardHover: '#0e414c',
+              border: 'rgba(56, 217, 169, 0.22)',
+              mint: '#38d9a9',
+              teal: '#20c997',
+              cyan: '#12b886',
+              amber: '#f59e0b',
+              rose: '#f43f5e'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+            deck: ['Space Grotesk', 'sans-serif']
+          },
+          boxShadow: {
+            'deck-card': '0 20px 40px -15px rgba(1, 10, 12, 0.7), 0 0 20px rgba(56, 217, 169, 0.08)',
+            'deck-hover': '0 30px 60px -12px rgba(1, 10, 12, 0.9), 0 0 35px rgba(56, 217, 169, 0.22)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Texture and deep ocean teal presentation wall styling */
+    body {
+      background-color: #041215;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(56, 217, 169, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(18, 184, 134, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(10, 50, 59, 0.4) 0%, transparent 80%),
+        linear-gradient(180deg, #020b0d 0%, #05191d 50%, #031013 100%);
+      background-attachment: fixed;
+      color: #e6f1f2;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Deck presentation slide frame */
+    .deck-slide {
+      background: linear-gradient(145deg, #0b3741 0%, #07272e 60%, #051d23 100%);
+      border: 1px solid rgba(56, 217, 169, 0.24);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+    }
+    .deck-slide:hover {
+      border-color: rgba(56, 217, 169, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(56, 217, 169, 0.16);
+    }
+
+    /* Architectural Typography */
+    .deck-title-large {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.04em;
+      line-height: 0.88;
+    }
+    .text-mint-glow {
+      color: #38d9a9;
+      text-shadow: 0 0 20px rgba(56, 217, 169, 0.35);
+    }
+
+    /* Floating speech balloon animation */
+    .speech-bubble-pop {
+      animation: popBounce 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popBounce {
+      0% { opacity: 0; transform: translateY(15px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Floating reaction emojis */
+    .floating-reaction {
+      position: absolute;
+      pointer-events: none;
+      animation: floatUpBurst 1.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+      z-index: 50;
+      user-select: none;
+    }
+    @keyframes floatUpBurst {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6) translateY(0); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.3) translateY(-40px); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1) translateY(-85px); }
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030f12; }
+    ::-webkit-scrollbar-thumb { background: #0b4550; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #38d9a9; }
+  </style>
+</head>
+<body class="min-h-screen relative flex flex-col selection:bg-teal-500 selection:text-black">
+
+  <!-- Top Navigation & Presentation Switcher -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#041417]/85 border-b border-teal-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Deck Title -->
+      <a href="#hero-slide" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-400 via-mint-400 to-emerald-300 flex items-center justify-center font-heading font-black text-slate-950 text-lg shadow-md shadow-teal-500/30">
+          A
+        </div>
+        <div>
+          <span class="font-deck font-bold text-white text-base tracking-tight block">ABHIJITH A.</span>
+          <span class="text-[10px] text-teal-300 tracking-widest font-mono uppercase block -mt-0.5">Presentation Portfolio Deck</span>
+        </div>
+      </a>
+
+      <!-- Quick Slide Links -->
+      <nav class="hidden lg:flex items-center gap-1.5 font-mono text-xs">
+        <a href="#hero-slide" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white hover:bg-teal-500/10 transition">01. COVER</a>
+        <a href="#intro-slide" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white hover:bg-teal-500/10 transition">02. INTRO</a>
+        <a href="#ehs-project" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white hover:bg-teal-500/10 transition">03. EHS SUITE</a>
+        <a href="#skills-slide" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white hover:bg-teal-500/10 transition">04. TECH STACK</a>
+        <a href="#ai-slide" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white hover:bg-teal-500/10 transition">05. AI LAB</a>
+        <a href="#exp-slide" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white hover:bg-teal-500/10 transition">06. EXPERIENCE</a>
+      </nav>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openDeployModal()" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-teal-300 bg-teal-950/70 border border-teal-500/30 hover:bg-teal-900 transition flex items-center gap-1.5">
+          <i class="fab fa-github"></i> Deploy File
+        </button>
+        <a href="mailto:abhijithanirudhan0032@gmail.com" class="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-teal-400 via-mint-400 to-emerald-300 hover:scale-105 active:scale-95 transition shadow-sm">
+          Hire Me
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN SLIDES BENTO CANVAS (Exact reference style of image_0b2121.jpg) -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 space-y-8">
+    
+    <!-- Top Row: Grand Hero Slide (Left) & Intro + Contents Slides (Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- ==========================================
+           SLIDE 1: GRAND HERO PORTFOLIO COVER (lg:col-span-8)
+           Replicating the giant "PORT FOLIO" typographic banner 
+           with central 3D Avatar (Glasses, Brown Hair, Emerald Green Hoodie)
+           ========================================== -->
+      <section id="hero-slide" class="lg:col-span-8 deck-slide p-6 sm:p-8 flex flex-col justify-between min-h-[540px]">
+        
+        <!-- Top decorative slide tag & status -->
+        <div class="flex items-center justify-between z-20">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-xs font-mono tracking-widest text-teal-300 uppercase">Slide 01 // Master Deck</span>
+          </div>
+          <div class="text-xs font-mono px-2.5 py-1 rounded-full bg-teal-950/80 border border-teal-500/30 text-teal-300">
+            5 Years Exp &bull; Techversant
+          </div>
+        </div>
+
+        <!-- Center Stage: Grand Typography & 3D Avatar Character -->
+        <div class="relative my-4 flex flex-col items-center justify-center flex-grow">
+          
+          <!-- Background stylized typography from reference -->
+          <div class="w-full flex items-center justify-between text-white/90 select-none z-10 pointer-events-none px-2">
+            <!-- Left typography -->
+            <div class="text-left">
+              <div class="deck-title-large text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-teal-100/90 leading-none">
+                PORT
+              </div>
+              <div class="text-[11px] sm:text-xs font-mono tracking-[0.28em] text-teal-300/80 uppercase mt-2">
+                FULL-STACK DEVELOPER
+              </div>
+            </div>
+
+            <!-- Right typography -->
+            <div class="text-right">
+              <div class="deck-title-large text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-teal-100/90 leading-none">
+                FOLIO
+              </div>
+              <div class="text-[11px] sm:text-xs font-mono tracking-[0.25em] text-teal-300/80 uppercase mt-2">
+                COLDFUSION &bull; REACT &bull; AI
+              </div>
+            </div>
+          </div>
+
+          <!-- Central Character Canvas Stage -->
+          <div id="character-stage" class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-auto">
+            
+            <!-- Live Speech Bubble -->
+            <div id="avatar-speech" class="absolute -top-3 sm:top-2 px-4 py-2 rounded-2xl bg-[#031518]/95 border border-teal-400/50 text-xs sm:text-sm font-semibold text-teal-200 shadow-2xl flex items-center gap-2 speech-bubble-pop z-30">
+              <span id="avatar-speech-emoji">😎</span>
+              <span id="avatar-speech-text">Hey there! Click any emoji below to interact with me!</span>
+            </div>
+
+            <!-- Abhi 3D pet (abhi3d-pet.js mounts here via data-mount) -->
+            <div id="abhi-pet-slot" class="mt-8 drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)]"></div>
+
+            <!-- Current Steeze / Mood Badge -->
+            <div class="flex items-center gap-2 mt-1">
+              <span id="steeze-status-badge" class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#041a1f] border border-teal-400/40 text-teal-300 shadow">
+                Mood: Maintain your STEEZE 😎
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Character Interaction Emoji Toolbar (Reactions, Poses, Snacks) -->
+        <div class="z-20 pt-3 border-t border-teal-500/20">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[11px] font-mono text-teal-400 tracking-wider uppercase flex items-center gap-1.5">
+              <i class="fas fa-gamepad"></i> 3D Avatar Controller (Tap an Emoji)
+            </span>
+            <span class="text-[10px] text-slate-400 font-mono hidden sm:inline">Avatar tracks mouse &amp; touch position</span>
+          </div>
+
+          <!-- The Emoji Controller Grid -->
+          <div class="grid grid-cols-4 sm:grid-cols-8 gap-2">
+            <!-- Cool / Steeze -->
+            <button onclick="triggerAvatarAction('steeze', 'Maintain your STEEZE! Clean code, zero legacy debt. 😎', '😎', 'Cool / Steeze')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Maintain your STEEZE">
+              <span class="text-xl group-hover:scale-125 transition-transform">😎</span>
+              <span class="text-[10px] font-semibold text-teal-200">Steeze</span>
+            </button>
+
+            <!-- Hello / Wave -->
+            <button onclick="triggerAvatarAction('wave', 'Hi! I am Abhijith A, full-stack engineer from Kerala! 👋', '👋', 'Waving / Hello')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Wave Hello">
+              <span class="text-xl group-hover:scale-125 transition-transform">👋</span>
+              <span class="text-[10px] font-semibold text-teal-200">Hello</span>
+            </button>
+
+            <!-- Laugh -->
+            <button onclick="triggerAvatarAction('laugh', 'Haha! That database query ran 10x faster after indexing! 😂', '😂', 'Joyful Laugh')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Laugh">
+              <span class="text-xl group-hover:scale-125 transition-transform">😂</span>
+              <span class="text-[10px] font-semibold text-teal-200">Laugh</span>
+            </button>
+
+            <!-- Chai Time -->
+            <button onclick="triggerAvatarAction('chai', 'Ahh, steaming hot Kerala chai! Debugging fuel level: 100%! ☕', '☕', 'Chai Time')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Chai Time">
+              <span class="text-xl group-hover:scale-125 transition-transform">☕</span>
+              <span class="text-[10px] font-semibold text-amber-300">Chai</span>
+            </button>
+
+            <!-- Cookie -->
+            <button onclick="triggerAvatarAction('cookie', 'Crunchy chocolate cookie snack break! Ready for pull request reviews! 🍪', '🍪', 'Cookie Snack')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Cookie">
+              <span class="text-xl group-hover:scale-125 transition-transform">🍪</span>
+              <span class="text-[10px] font-semibold text-amber-200">Cookie</span>
+            </button>
+
+            <!-- Sleep -->
+            <button onclick="triggerAvatarAction('sleep', 'Shhh... Power-napping after 99.9% uptime deployment! 😴', '😴', 'Sleep Mode')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Sleep Mode">
+              <span class="text-xl group-hover:scale-125 transition-transform">😴</span>
+              <span class="text-[10px] font-semibold text-slate-300">Sleep</span>
+            </button>
+
+            <!-- Idea / Brain -->
+            <button onclick="triggerAvatarAction('idea', 'Idea: Why not chain ColdFusion REST services with Amazon Polly audio? 💡', '💡', 'Brainstorm')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Idea">
+              <span class="text-xl group-hover:scale-125 transition-transform">💡</span>
+              <span class="text-[10px] font-semibold text-yellow-300">Idea</span>
+            </button>
+
+            <!-- Dance / Groove -->
+            <button onclick="triggerAvatarAction('dance', 'Grooving to smooth animations and zero-bug production releases! 🕺✨', '🕺', 'Dance & Groove')" class="p-2 rounded-xl bg-teal-950/70 hover:bg-teal-900 border border-teal-500/30 hover:border-teal-400 transition-all flex flex-col items-center justify-center gap-1 active:scale-90 group" title="Dance & Groove">
+              <span class="text-xl group-hover:scale-125 transition-transform">🕺</span>
+              <span class="text-[10px] font-semibold text-teal-300">Dance</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Intro Slide & Content Index Slide (from image_0b2121.jpg) -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        
+        <!-- ==========================================
+             SLIDE 2: INTRODUCTION CARD (Top Right)
+             ========================================== -->
+        <section id="intro-slide" class="deck-slide p-6 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center justify-between mb-4 border-b border-teal-500/20 pb-3">
+              <h2 class="font-deck font-bold text-xl tracking-tight text-white flex items-center gap-2">
+                <span class="text-teal-400">02.</span> INTRODUCTION
+              </h2>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-teal-950 border border-teal-500/30 text-teal-300">Bio</span>
+            </div>
+
+            <!-- Mini profile avatar & title snippet -->
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-300 p-0.5 shadow-lg flex-shrink-0">
+                <div class="w-full h-full rounded-[14px] bg-[#041a1f] flex items-center justify-center overflow-hidden">
+                  <!-- Vector stylized avatar mini face -->
+                  <svg viewBox="0 0 100 100" class="w-12 h-12">
+                    <circle cx="50" cy="50" r="46" fill="#0b3741"/>
+                    <!-- hoodie -->
+                    <path d="M20,95 Q50,60 80,95 Z" fill="#0d9488"/>
+                    <!-- head -->
+                    <circle cx="50" cy="46" r="24" fill="#f8cfb2"/>
+                    <!-- hair -->
+                    <path d="M26,44 Q50,15 74,44 Q68,26 50,22 Q32,26 26,44 Z" fill="#452718"/>
+                    <!-- glasses -->
+                    <rect x="33" y="42" width="14" height="12" rx="3" fill="none" stroke="#111827" stroke-width="2.5"/>
+                    <rect x="53" y="42" width="14" height="12" rx="3" fill="none" stroke="#111827" stroke-width="2.5"/>
+                    <line x1="47" y1="47" x2="53" y2="47" stroke="#111827" stroke-width="2"/>
+                    <!-- smile -->
+                    <path d="M44,56 Q50,61 56,56" fill="none" stroke="#991b1b" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-deck font-bold text-white text-base">Abhijith A</h3>
+                <p class="text-xs text-teal-300 font-medium">Software Engineer @ Techversant</p>
+                <p class="text-[11px] text-slate-400 font-mono">Kerala, India &bull; 5 Yrs Industry Exp</p>
+              </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Full-Stack Developer with <strong>5 years of enterprise expertise</strong> at Techversant Info Tech. Specializing in high-throughput ColdFusion/Lucee backends, dynamic React &amp; Angular SPAs, MySQL data schemas, and modern AI/LLM orchestration.
+            </p>
+
+            <!-- Direct Contact List -->
+            <div class="space-y-2 font-mono text-xs">
+              <a href="mailto:abhijithanirudhan0032@gmail.com" class="p-2 rounded-xl bg-teal-950/60 hover:bg-teal-900 border border-teal-500/25 flex items-center justify-between text-slate-300 hover:text-white transition">
+                <span class="flex items-center gap-2">
+                  <i class="far fa-envelope text-teal-400"></i>
+                  <span class="truncate">abhijithanirudhan0032@gmail.com</span>
+                </span>
+                <i class="fas fa-arrow-up-right-from-square text-[10px] text-teal-400"></i>
+              </a>
+
+              <a href="tel:+917510547884" class="p-2 rounded-xl bg-teal-950/60 hover:bg-teal-900 border border-teal-500/25 flex items-center justify-between text-slate-300 hover:text-white transition">
+                <span class="flex items-center gap-2">
+                  <i class="fas fa-phone-alt text-teal-400"></i>
+                  <span>+91 7510547884</span>
+                </span>
+                <i class="fas fa-arrow-up-right-from-square text-[10px] text-teal-400"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="pt-3 mt-3 border-t border-teal-500/20 flex justify-between items-center text-[11px] font-mono text-slate-400">
+            <span>Availability: Immediate</span>
+            <span class="text-emerald-400 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Active
+            </span>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SLIDE 3: CONTENT / INDEX CARD (Bottom Right)
+             Matches the "CONTENT 01 02 03 04 05" layout in reference
+             ========================================== -->
+        <section class="deck-slide p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4 border-b border-teal-500/20 pb-3">
+              <h2 class="font-deck font-bold text-xl tracking-tight text-white flex items-center gap-2">
+                <span class="text-teal-400">03.</span> CONTENT / DECK INDEX
+              </h2>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-teal-950 border border-teal-500/30 text-teal-300">Agenda</span>
+            </div>
+
+            <!-- Numbers Horizontal Row from Image Reference -->
+            <div class="grid grid-cols-5 gap-1.5 text-center my-3">
+              <a href="#hero-slide" class="p-2 rounded-lg bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 transition group">
+                <span class="block font-deck font-bold text-base sm:text-lg text-teal-300 group-hover:text-white">01</span>
+                <span class="text-[9px] font-mono text-slate-400 uppercase">Cover</span>
+              </a>
+              <a href="#ehs-project" class="p-2 rounded-lg bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 transition group">
+                <span class="block font-deck font-bold text-base sm:text-lg text-teal-300 group-hover:text-white">02</span>
+                <span class="text-[9px] font-mono text-slate-400 uppercase">EHS</span>
+              </a>
+              <a href="#skills-slide" class="p-2 rounded-lg bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 transition group">
+                <span class="block font-deck font-bold text-base sm:text-lg text-teal-300 group-hover:text-white">03</span>
+                <span class="text-[9px] font-mono text-slate-400 uppercase">Skills</span>
+              </a>
+              <a href="#ai-slide" class="p-2 rounded-lg bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 transition group">
+                <span class="block font-deck font-bold text-base sm:text-lg text-teal-300 group-hover:text-white">04</span>
+                <span class="text-[9px] font-mono text-slate-400 uppercase">AI Lab</span>
+              </a>
+              <a href="#exp-slide" class="p-2 rounded-lg bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 transition group">
+                <span class="block font-deck font-bold text-base sm:text-lg text-teal-300 group-hover:text-white">05</span>
+                <span class="text-[9px] font-mono text-slate-400 uppercase">Career</span>
+              </a>
+            </div>
+
+            <!-- Descriptive outline items -->
+            <ul class="text-xs text-slate-300 space-y-1.5 font-mono pt-1">
+              <li class="flex items-center gap-2">
+                <span class="text-teal-400">01.</span> Core Architecture &amp; 3D Steeze Avatar
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-teal-400">02.</span> Flagship EHS &amp; LMS Cloud Platform
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-teal-400">03.</span> Interactive Skills Matrix &amp; Stack
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-teal-400">04.</span> Amazon Polly &amp; Claude AI Simulators
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-teal-400">05.</span> Techversant 5-Year Track Record &amp; SIH
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- Middle Row: Flagship Project Slide (EHS & LMS Platform) -->
+    <section id="ehs-project" class="deck-slide p-6 sm:p-8">
+      
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-teal-500/20 pb-4 mb-6">
+        <div>
+          <span class="text-xs font-mono tracking-widest text-teal-400 uppercase">Case Study // Flagship Deployment</span>
+          <h2 class="font-deck font-extrabold text-2xl sm:text-3xl text-white mt-1">
+            North American Enterprise EHS &amp; LMS Platform
+          </h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-teal-950 border border-teal-400/40 text-teal-300">
+            <i class="fas fa-shield-alt text-teal-400 mr-1"></i> OSHA / ISO Certified
+          </span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-950/80 border border-emerald-400/40 text-emerald-300">
+            99.98% SLA
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        
+        <!-- Left: Project Narrative & Architectural Metrics -->
+        <div class="lg:col-span-7 space-y-4">
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Mission-critical compliance software suite managing health, environmental safety, automated incident documentation, and continuous certification matrices for heavy-industry workforce across North America.
+          </p>
+
+          <!-- Core Architecture Feature Quadrants -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="flex items-center gap-2 text-teal-300 text-xs font-bold font-mono mb-1">
+                <i class="fas fa-brain text-teal-400"></i> Automated Training Matrix
+              </div>
+              <p class="text-xs text-slate-300">
+                Rule-based worker compliance engine auto-assigning refreshers &amp; tracking expiry timelines across job titles.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="flex items-center gap-2 text-teal-300 text-xs font-bold font-mono mb-1">
+                <i class="fas fa-headphones text-teal-400"></i> Amazon Polly Narration
+              </div>
+              <p class="text-xs text-slate-300">
+                Integrated cloud text-to-speech generating synchronized audio in multiple languages for LMS modules.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="flex items-center gap-2 text-teal-300 text-xs font-bold font-mono mb-1">
+                <i class="fas fa-server text-teal-400"></i> ColdFusion REST Services
+              </div>
+              <p class="text-xs text-slate-300">
+                Robust CFML controllers handling high-concurrency compliance validation and relational data queries.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="flex items-center gap-2 text-teal-300 text-xs font-bold font-mono mb-1">
+                <i class="fas fa-database text-teal-400"></i> MySQL &amp; AWS S3 Pipeline
+              </div>
+              <p class="text-xs text-slate-300">
+                Indexed schemas handling millions of logs with encrypted audit trail document storage on Amazon S3.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Technologies Pill Rack -->
+          <div class="pt-2 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-lg text-xs font-mono bg-[#031c21] border border-teal-500/30 text-teal-300">Adobe ColdFusion</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-mono bg-[#031c21] border border-teal-500/30 text-teal-300">React.js</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-mono bg-[#031c21] border border-teal-500/30 text-teal-300">AngularJS</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-mono bg-[#031c21] border border-teal-500/30 text-teal-300">MySQL 8.0</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-mono bg-[#031c21] border border-teal-500/30 text-teal-300">AWS Polly</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-mono bg-[#031c21] border border-teal-500/30 text-teal-300">AWS S3</span>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Architecture Diagram Deck -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl bg-[#03181c] border border-teal-500/30 p-5 space-y-3.5 shadow-inner">
+            
+            <div class="flex items-center justify-between border-b border-teal-500/20 pb-2 text-xs font-mono text-teal-400">
+              <span><i class="fas fa-layer-group mr-1.5"></i> SYSTEM ARCHITECTURE</span>
+              <span class="text-emerald-400">LIVE PRODUCTION</span>
+            </div>
+
+            <!-- Stack layers visual -->
+            <div class="space-y-2 font-mono text-xs">
+              <div class="p-2.5 rounded-xl bg-teal-950/60 border border-teal-500/25 flex items-center justify-between">
+                <span class="text-slate-300 flex items-center gap-2">
+                  <i class="fab fa-react text-cyan-400"></i> Client Presentation
+                </span>
+                <span class="text-teal-300 font-bold">React.js &amp; Angular</span>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-teal-950/60 border border-teal-500/25 flex items-center justify-between">
+                <span class="text-slate-300 flex items-center gap-2">
+                  <i class="fas fa-code-branch text-teal-400"></i> Backend Application
+                </span>
+                <span class="text-teal-300 font-bold">ColdFusion 2021 / Lucee</span>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-teal-950/60 border border-teal-500/25 flex items-center justify-between">
+                <span class="text-slate-300 flex items-center gap-2">
+                  <i class="fas fa-wave-square text-amber-400"></i> Audio &amp; AI Engine
+                </span>
+                <span class="text-teal-300 font-bold">Amazon Polly + LLM</span>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-teal-950/60 border border-teal-500/25 flex items-center justify-between">
+                <span class="text-slate-300 flex items-center gap-2">
+                  <i class="fas fa-database text-emerald-400"></i> Data Storage
+                </span>
+                <span class="text-teal-300 font-bold">MySQL + Amazon S3</span>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <button onclick="playEhsAudioSample()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-mint-400 hover:from-teal-400 hover:to-mint-300 text-slate-950 font-deck font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-teal-500/20 active:scale-95 transition">
+                <i class="fas fa-play text-xs"></i> Play EHS Polly Voice Sample
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Two-Column Slide Row: Skills Matrix (Left) & AI Integration Lab (Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- ==========================================
+           SLIDE 4: TECHNICAL SKILLS MATRIX
+           ========================================== -->
+      <section id="skills-slide" class="lg:col-span-6 deck-slide p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between border-b border-teal-500/20 pb-3 mb-4">
+            <h2 class="font-deck font-bold text-xl tracking-tight text-white flex items-center gap-2">
+              <span class="text-teal-400">04.</span> TECHNICAL ARSENAL
+            </h2>
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-teal-950 border border-teal-500/30 text-teal-300">Stack</span>
+          </div>
+
+          <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+            5 years of production experience spanning legacy modernizations, scalable full-stack web platforms, and automated cloud workflows.
+          </p>
+
+          <!-- Categorized Skill Cards -->
+          <div class="space-y-3">
+            
+            <!-- Category 1: Backend & Core -->
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="text-xs font-mono font-bold text-teal-300 uppercase mb-2 flex items-center gap-1.5">
+                <i class="fas fa-server"></i> Server-Side &amp; Enterprise Backends
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Adobe ColdFusion (CFML)</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Lucee Server</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">RESTful Web APIs</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Node.js</span>
+              </div>
+            </div>
+
+            <!-- Category 2: Frontend Architecture -->
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="text-xs font-mono font-bold text-teal-300 uppercase mb-2 flex items-center gap-1.5">
+                <i class="fab fa-react"></i> Frontend &amp; Interactive UI
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">React.js</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Angular / AngularJS</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">JavaScript (ES6+)</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">HTML5 / CSS3</span>
+              </div>
+            </div>
+
+            <!-- Category 3: Database & Cloud Infrastructure -->
+            <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/20">
+              <div class="text-xs font-mono font-bold text-teal-300 uppercase mb-2 flex items-center gap-1.5">
+                <i class="fas fa-database"></i> Database, Cloud &amp; AI
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">MySQL &amp; Index Tuning</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">AWS S3 Storage</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Amazon Polly (TTS)</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Claude &amp; OpenAI APIs</span>
+                <span class="px-2.5 py-1 rounded bg-[#031a1e] border border-teal-500/30 text-white">Git &amp; CI/CD</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="pt-3 mt-4 border-t border-teal-500/20 flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>Continuous Integration / Automated Testing</span>
+          <span class="text-teal-300 font-bold">100% Production Ready</span>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 5: AI INTEGRATION LAB (Simulators)
+           ========================================== -->
+      <section id="ai-slide" class="lg:col-span-6 deck-slide p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between border-b border-teal-500/20 pb-3 mb-4">
+            <h2 class="font-deck font-bold text-xl tracking-tight text-white flex items-center gap-2">
+              <span class="text-teal-400">05.</span> AI INTEGRATIONS LAB
+            </h2>
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-teal-950 border border-teal-500/30 text-teal-300">Live Simulator</span>
+          </div>
+
+          <!-- Feature 1: Amazon Polly Speech Synthesizer -->
+          <div class="mb-5">
+            <div class="flex items-center justify-between text-xs font-mono text-teal-300 mb-1.5">
+              <span><i class="fas fa-volume-high text-teal-400 mr-1"></i> Amazon Polly TTS Simulator</span>
+              <span class="text-[10px] text-slate-400 font-sans">Neural Voice</span>
+            </div>
+            
+            <div class="space-y-2">
+              <textarea id="polly-test-script" rows="2" class="w-full bg-[#03161a] border border-teal-500/30 rounded-xl p-2.5 text-xs text-teal-100 font-mono focus:outline-none focus:border-teal-400" placeholder="Type training narration to vocalize...">Welcome to OSHA Hazard Communication. Wear safety goggles and heat-resistant gloves in Zone B.</textarea>
+              
+              <div class="flex gap-2">
+                <button onclick="synthesizeSpeechLive()" class="flex-1 py-2 px-3 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition active:scale-95 shadow">
+                  <i class="fas fa-play text-xs"></i> Synthesize Audio
+                </button>
+                <button onclick="stopSpeechLive()" class="py-2 px-3 rounded-lg bg-teal-950 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+                  <i class="fas fa-stop"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2: Claude / OpenAI Automated Compliance Classifier -->
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-teal-300 mb-1.5">
+              <span><i class="fas fa-microchip text-teal-400 mr-1"></i> AI Incident Form Classifier</span>
+              <span class="text-[10px] text-slate-400 font-sans">LLM Prompt Chain</span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex gap-1.5">
+                <button onclick="loadSamplePrompt('spill')" class="px-2 py-1 rounded bg-teal-950/80 border border-teal-500/30 text-[10px] text-teal-300 hover:bg-teal-900">Sample: Chemical Spill</button>
+                <button onclick="loadSamplePrompt('trip')" class="px-2 py-1 rounded bg-teal-950/80 border border-teal-500/30 text-[10px] text-teal-300 hover:bg-teal-900">Sample: Machine Guard</button>
+              </div>
+
+              <textarea id="ai-incident-input" rows="2" class="w-full bg-[#03161a] border border-teal-500/30 rounded-xl p-2.5 text-xs text-teal-100 font-mono focus:outline-none focus:border-teal-400" placeholder="Enter incident report text...">Coolant line drip noticed on CNC lathe station 4. Maintenance isolated valve and applied soak pads.</textarea>
+
+              <div id="ai-classification-output" class="h-20 bg-[#020e11] border border-teal-500/25 rounded-xl p-2.5 overflow-y-auto font-mono text-[11px] text-teal-200">
+                Click below to process report through simulated AI classification pipeline.
+              </div>
+
+              <button onclick="runIncidentClassifier()" class="w-full py-2 px-3 rounded-lg bg-gradient-to-r from-teal-500 to-mint-400 hover:opacity-95 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 active:scale-95 transition shadow">
+                <i class="fas fa-sparkles"></i> Classify Incident with AI
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bottom Row: 5-Year Career Experience (Left) & Honors / Education (Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- ==========================================
+           SLIDE 6: PROFESSIONAL EXPERIENCE TIMELINE
+           ========================================== -->
+      <section id="exp-slide" class="lg:col-span-7 deck-slide p-6 sm:p-8">
+        <div class="flex items-center justify-between border-b border-teal-500/20 pb-3 mb-6">
+          <div>
+            <span class="text-xs font-mono tracking-widest text-teal-400 uppercase">Track Record</span>
+            <h2 class="font-deck font-bold text-2xl text-white mt-0.5">
+              5-Year Engineering Progression
+            </h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-teal-950 border border-teal-500/30 text-teal-300">
+            Techversant Info Tech
+          </span>
+        </div>
+
+        <div class="space-y-6 relative pl-6 border-l-2 border-teal-500/30">
+          
+          <!-- Role 1: Software Engineer -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-teal-400 border-4 border-[#06242a] shadow-md shadow-teal-500/50"></div>
+            
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <h3 class="font-deck font-bold text-lg text-white">Software Engineer</h3>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-teal-500/20 text-teal-300 border border-teal-400/40">
+                April 2024 – Present
+              </span>
+            </div>
+            <div class="text-xs text-teal-300 font-mono mb-2">Techversant Info Tech &bull; Full-time</div>
+
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              Leading full-stack modules for North American compliance systems. Architecting ColdFusion/Lucee REST services, orchestrating AWS Polly speech automation, and integrating LLMs for compliance search.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-teal-950/80 border border-teal-500/25 text-teal-300">ColdFusion</span>
+              <span class="px-2 py-0.5 rounded bg-teal-950/80 border border-teal-500/25 text-teal-300">React.js</span>
+              <span class="px-2 py-0.5 rounded bg-teal-950/80 border border-teal-500/25 text-teal-300">Amazon Polly</span>
+              <span class="px-2 py-0.5 rounded bg-teal-950/80 border border-teal-500/25 text-teal-300">MySQL 8.0</span>
+            </div>
+          </div>
+
+          <!-- Role 2: Associate Software Engineer + Best Performer Award -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-teal-600 border-4 border-[#06242a]"></div>
+            
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <h3 class="font-deck font-bold text-lg text-white">Associate Software Engineer</h3>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-teal-950/80 text-slate-300 border border-teal-500/20">
+                July 2021 – March 2024
+              </span>
+            </div>
+            <div class="text-xs text-teal-300 font-mono mb-2">Techversant Info Tech &bull; Full-time</div>
+
+            <!-- Award Highlight Callout -->
+            <div class="p-3 rounded-xl bg-gradient-to-r from-amber-500/15 via-teal-900/30 to-amber-500/10 border border-amber-400/40 mb-3 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-amber-400/20 text-amber-300 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-amber-300 uppercase tracking-widest block font-mono">Quarterly Excellence Award</span>
+                <span class="text-xs font-bold text-white">Best Performance in the Quarter – Q1 2022-23</span>
+                <p class="text-[11px] text-slate-300">Awarded for high code quality, on-time module delivery, and client commendations.</p>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">
+              Spearheaded UI component migrations to Angular, optimized ColdFusion batch scripts, and tuned complex relational joins for enterprise clients.
+            </p>
+          </div>
+
+          <!-- Role 3: KELTRON Knowledge Centre Internship -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-teal-800 border-4 border-[#06242a]"></div>
+            <div class="flex flex-wrap items-center justify-between gap-1">
+              <h4 class="font-deck font-bold text-sm text-white">Software Engineering Intern</h4>
+              <span class="text-[11px] font-mono text-slate-400">Palakkad, Kerala</span>
+            </div>
+            <div class="text-[11px] text-teal-400 font-mono">KELTRON Knowledge Centre</div>
+            <p class="text-xs text-slate-300 mt-1">
+              Applied fundamentals in database normalization, full-stack MVC patterns, and secure application development.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 7: EDUCATION, SEMINARS & HACKATHONS
+           ========================================== -->
+      <section class="lg:col-span-5 deck-slide p-6 sm:p-8 flex flex-col justify-between">
+        <div class="space-y-5">
+          
+          <div class="flex items-center justify-between border-b border-teal-500/20 pb-3">
+            <h2 class="font-deck font-bold text-xl tracking-tight text-white flex items-center gap-2">
+              <span class="text-teal-400">07.</span> ACADEMICS &amp; HONORS
+            </h2>
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-teal-950 border border-teal-500/30 text-teal-300">Education</span>
+          </div>
+
+          <!-- B.Tech CSE (strictly WITHOUT PRIST University) -->
+          <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/25">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-deck font-bold text-white text-sm">B.Tech in Computer Science and Engineering</h3>
+              <span class="text-xs font-mono text-teal-300">2017 – 2021</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Four-year rigorous engineering curriculum focusing on data structures, relational database systems, compiler design, and software engineering.
+            </p>
+          </div>
+
+          <!-- Higher Secondary -->
+          <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/25">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-deck font-bold text-white text-sm">Higher Secondary (Computer Science)</h3>
+              <span class="text-xs font-mono text-teal-300">2015 – 2017</span>
+            </div>
+            <div class="text-xs text-teal-400 font-mono">THSS Adoor, Adoor</div>
+          </div>
+
+          <!-- Technical Research Seminar -->
+          <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/25">
+            <div class="text-xs font-mono font-bold text-amber-300 uppercase mb-1 flex items-center gap-1.5">
+              <i class="fas fa-file-lines"></i> Technical Research Seminar
+            </div>
+            <h4 class="font-deck font-bold text-white text-xs mb-1">
+              Brain Tumor Segmentation from Multi-Modality MRI Images
+            </h4>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Presented deep learning segmentation techniques analyzing multi-channel MRI data with convolutional neural network architectures.
+            </p>
+          </div>
+
+          <!-- Smart India Hackathon (SIH) -->
+          <div class="p-3.5 rounded-xl bg-teal-950/50 border border-teal-500/25">
+            <div class="text-xs font-mono font-bold text-emerald-300 uppercase mb-1 flex items-center gap-1.5">
+              <i class="fas fa-lightbulb"></i> National Innovation Competition
+            </div>
+            <div class="text-xs font-bold text-white">Smart India Hackathon (SIH) 2018</div>
+            <p class="text-[11px] text-slate-300 mt-0.5">
+              Selected participant in India's prestigious national hackathon organized by MHRD, Government of India.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="pt-3 border-t border-teal-500/20 text-center">
+          <a href="mailto:abhijithanirudhan0032@gmail.com" class="inline-flex items-center gap-2 text-xs font-mono text-teal-300 hover:text-white transition">
+            <i class="far fa-paper-plane"></i> Request Complete Resume (PDF) &rarr;
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- FLOATING BOTTOM DOCK: "MAINTAIN YOUR STEEZE" & ACTION BAR -->
+  <aside class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-11/12 max-w-xl">
+    <div class="deck-slide p-3 px-4 border border-teal-400/40 shadow-2xl flex items-center justify-between gap-2 backdrop-blur-xl bg-[#04191d]/90">
+      
+      <!-- Steeze & Like Counter -->
+      <button onclick="incrementSteeze()" class="group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-xs text-teal-300 transition active:scale-95">
+        <i class="fas fa-heart text-rose-400 group-hover:scale-125 transition-transform"></i>
+        <span class="font-bold font-mono" id="steeze-counter">318</span>
+        <span class="text-[10px] text-slate-400 font-mono hidden sm:inline">STEEZE</span>
+      </button>
+
+      <!-- "Maintain Your Steeze" celebration action -->
+      <button onclick="maintainYourSteezeGrand()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-teal-400 via-mint-400 to-emerald-300 hover:from-teal-300 hover:to-emerald-200 text-slate-950 font-deck font-bold text-xs uppercase tracking-wider shadow-lg shadow-teal-500/30 active:scale-95 transition flex items-center gap-1.5">
+        <i class="fas fa-wand-magic-sparkles text-xs"></i>
+        <span>Maintain Your Steeze</span>
+      </button>
+
+      <!-- Quick Copy Phone & Email -->
+      <button onclick="copyDeckContact('abhijithanirudhan0032@gmail.com', 'Email copied!')" class="p-2 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs transition" title="Copy Email">
+        <i class="far fa-envelope"></i>
+      </button>
+
+      <button onclick="copyDeckContact('+917510547884', 'Phone number copied!')" class="p-2 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs transition" title="Copy Phone">
+        <i class="fas fa-phone-alt"></i>
+      </button>
+
+      <!-- Top Jump -->
+      <a href="#hero-slide" class="p-2 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs transition" title="Top of Deck">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+
+    </div>
+  </aside>
+
+  <!-- Floating Toast Notification -->
+  <div id="deck-toast" class="fixed top-20 right-6 z-50 transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none px-4 py-2.5 rounded-xl bg-[#031c21] border border-teal-400 text-teal-200 text-xs font-mono font-semibold shadow-2xl flex items-center gap-2">
+    <i class="fas fa-check-circle text-teal-400"></i>
+    <span id="deck-toast-text">Message</span>
+  </div>
+
+  <!-- Single-File GitHub Pages Deployment Modal -->
+  <div id="deploy-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="deck-slide max-w-lg w-full rounded-2xl p-6 border border-teal-400/40 space-y-4 bg-[#051c22]">
+      <div class="flex items-center justify-between border-b border-teal-500/20 pb-3">
+        <h3 class="font-deck font-bold text-white text-lg flex items-center gap-2">
+          <i class="fab fa-github text-teal-400"></i> 1-Step GitHub Pages Deployment
+        </h3>
+        <button onclick="closeDeployModal()" class="text-slate-400 hover:text-white text-lg">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-300 leading-relaxed">
+        This page needs no build step. The 3D avatar, presentation deck styling, and interactive AI simulators require zero build steps:
+      </p>
+
+      <ol class="space-y-2 font-mono text-xs text-teal-200 bg-[#021114] p-3.5 rounded-xl border border-teal-500/25">
+        <li>1. Create a GitHub repository (e.g., <code class="text-white">portfolio</code>).</li>
+        <li>2. Save this file as <code class="text-white">index.html</code> in the root directory, with <code class="text-white">abhi3d-pet.js</code> next to it.</li>
+        <li>3. Push or upload it to your <code class="text-white">main</code> branch.</li>
+        <li>4. Navigate to <strong>Settings &rarr; Pages &rarr; Branch: main &rarr; / (root) &rarr; Save</strong>.</li>
+        <li>5. Your 3D avatar presentation portfolio is live immediately!</li>
+      </ol>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="closeDeployModal()" class="px-4 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-deck font-bold text-xs uppercase">
+          Understood
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Abhi 3D pet: sprite-based character rendered inside the hero stage -->
+  <script src="abhi3d-pet.js" data-mount="#abhi-pet-slot" data-scale="2" data-sleep-after="60"></script>
+
+  <!-- =========================================================================
+       UI CONTROLLER: EMOJI TRIGGER, POLLY TTS & AI SIMULATORS
+       ========================================================================= -->
+  <script>
+    // Portfolio action -> Abhi pet pose (see STATES in abhi3d-pet.js)
+    var PET_POSES = {
+      steeze: 'skill-orchestrate', wave: 'waving', laugh: 'full', idea: 'skill-research',
+      dance: 'running', grand: 'riding', audio: 'skill-video', review: 'skill-review'
+    };
+
+    function playPet(action) {
+      var pet = window.AbhiPet;
+      if (!pet) return;
+      if (action === 'chai' || action === 'cookie') pet.feed(action);
+      else if (action === 'sleep') pet.sleep();
+      else if (PET_POSES[action]) pet.play(PET_POSES[action]);
+    }
+
+    // Trigger Avatar Pose & Reaction
+    function triggerAvatarAction(action, speechText, emoji, moodLabel) {
+      playPet(action);
+
+      // Update Speech Bubble
+      var speechBox = document.getElementById('avatar-speech');
+      var speechTextEl = document.getElementById('avatar-speech-text');
+      var speechEmojiEl = document.getElementById('avatar-speech-emoji');
+      var statusBadge = document.getElementById('steeze-status-badge');
+
+      if (speechTextEl) speechTextEl.innerText = speechText;
+      if (speechEmojiEl) speechEmojiEl.innerText = emoji;
+      if (statusBadge) statusBadge.innerText = 'Mood: ' + (moodLabel || action) + ' ' + emoji;
+
+      // Pulse bubble animation
+      if (speechBox) {
+        speechBox.classList.remove('speech-bubble-pop');
+        void speechBox.offsetWidth; // retrigger reflow
+        speechBox.classList.add('speech-bubble-pop');
+      }
+
+      // Spawn floating reaction particle
+      spawnFloatingReaction(emoji);
+    }
+
+    // Spawn floating emoji burst
+    function spawnFloatingReaction(emoji) {
+      var stage = document.getElementById('character-stage');
+      if (!stage) return;
+
+      var burst = document.createElement('div');
+      burst.className = 'floating-reaction text-3xl';
+      burst.innerText = emoji || '✨';
+      burst.style.left = '50%';
+      burst.style.top = '50%';
+
+      stage.appendChild(burst);
+      setTimeout(function () {
+        if (burst && burst.parentNode) burst.parentNode.removeChild(burst);
+      }, 1200);
+    }
+
+    // Steeze incrementer counter
+    var steezeScore = 318;
+    function incrementSteeze() {
+      steezeScore++;
+      var el = document.getElementById('steeze-counter');
+      if (el) el.innerText = steezeScore;
+      triggerAvatarAction('steeze', 'Steeze boosted to ' + steezeScore + '! Pure architectural flow. 😎', '😎', 'Steeze Peak');
+      showDeckToast('Steeze boosted! Keep building!');
+    }
+
+    // Grand "Maintain Your Steeze" celebration
+    function maintainYourSteezeGrand() {
+      if (window.confetti) {
+        confetti({
+          particleCount: 90,
+          spread: 80,
+          origin: { y: 0.85 },
+          colors: ['#38d9a9', '#14b8a6', '#f59e0b', '#06b6d4', '#ffffff']
+        });
+      }
+      triggerAvatarAction('grand', '✨ STEEZE MAINTAINED: Clean code, zero regressions, maximum performance! ✨', '🕺', 'Steeze Grand');
+      showDeckToast('Maintain Your STEEZE activated! 🚀');
+    }
+
+    // Copy to clipboard with toast
+    function copyDeckContact(text, msg) {
+      var temp = document.createElement('textarea');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+        showDeckToast(msg || 'Copied to clipboard!');
+      } catch (err) {
+        showDeckToast('Text: ' + text);
+      }
+      document.body.removeChild(temp);
+    }
+
+    // Deck Toast display
+    function showDeckToast(msg) {
+      var toast = document.getElementById('deck-toast');
+      var toastText = document.getElementById('deck-toast-text');
+      if (!toast || !toastText) return;
+
+      toastText.innerText = msg;
+      toast.classList.remove('opacity-0', 'translate-y-[-100px]');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(function () {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-[-100px]');
+      }, 2800);
+    }
+
+    // Amazon Polly Speech Synthesis Simulator
+    var synth = window.speechSynthesis;
+    function synthesizeSpeechLive() {
+      var text = document.getElementById('polly-test-script').value;
+      if (!text) return;
+      if (synth) {
+        synth.cancel();
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1.0;
+        utterance.pitch = 1.05;
+        synth.speak(utterance);
+        showDeckToast('Playing Polly Neural Audio stream...');
+        triggerAvatarAction('audio', 'Polly TTS audio streaming: "' + text.substring(0, 36) + '..."', '🔊', 'Audio Synthesizer');
+      } else {
+        showDeckToast('Audio engine ready');
+      }
+    }
+
+    function stopSpeechLive() {
+      if (synth) synth.cancel();
+      showDeckToast('Audio playback stopped');
+    }
+
+    function playEhsAudioSample() {
+      var sample = "Notice: ColdFusion REST service verified employee training compliance across all active industrial facilities.";
+      if (synth) {
+        synth.cancel();
+        var utterance = new SpeechSynthesisUtterance(sample);
+        synth.speak(utterance);
+      }
+      showDeckToast('Simulating EHS Polly LMS notification...');
+      triggerAvatarAction('wave', 'Playing EHS production vocalization sample!', '🎧', 'EHS Polly');
+    }
+
+    // Claude / OpenAI Incident Classifier Simulator
+    function loadSamplePrompt(type) {
+      var box = document.getElementById('ai-incident-input');
+      if (type === 'spill') {
+        box.value = "Acetone transfer drum seal slipped in Bay 3. Minor 1-liter puddle contained with neutralizing absorbent.";
+      } else {
+        box.value = "Conveyor guard plate vibration observed during 3rd shift run. Safety interlock triggered automatic shutoff.";
+      }
+    }
+
+    function runIncidentClassifier() {
+      var out = document.getElementById('ai-classification-output');
+      if (!out) return;
+      out.innerHTML = '<span class="text-amber-400 font-mono"><i class="fas fa-spinner fa-spin mr-1"></i> Invoking LLM prompt pipeline via ColdFusion microservice...</span>';
+
+      setTimeout(function () {
+        out.innerHTML = 
+          '<div class="text-teal-300 font-bold mb-1">✔ Classification Result (Model: Claude 3.5 Sonnet / OpenAI):</div>' +
+          '<div>• <strong>OSHA Recordability:</strong> Non-Recordable (First-Aid / Contained)</div>' +
+          '<div>• <strong>Risk Category:</strong> Level 1 (Mechanical / Containment)</div>' +
+          '<div>• <strong>Corrective Action:</strong> Gasket replacement scheduled; LMS refresher sent.</div>';
+        triggerAvatarAction('review', 'AI pipeline classified report in 180ms! Recordability check completed! ⚡', '🤖', 'AI Incident');
+        showDeckToast('Incident classified successfully!');
+      }, 750);
+    }
+
+    // Deploy modal controls
+    function openDeployModal() {
+      var m = document.getElementById('deploy-modal');
+      if (m) m.classList.remove('hidden'), m.classList.add('flex');
+    }
+    function closeDeployModal() {
+      var m = document.getElementById('deploy-modal');
+      if (m) m.classList.remove('flex'), m.classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
