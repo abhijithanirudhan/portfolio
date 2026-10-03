@@ -903,29 +903,29 @@
       
       <!-- Steeze & Like Counter -->
       <button onclick="incrementSteeze()" class="group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-xs text-teal-300 transition active:scale-95">
-        <i class="fas fa-heart text-rose-400 group-hover:scale-125 transition-transform"></i>
+        <span aria-hidden="true" class="text-rose-400 group-hover:scale-125 transition-transform">♥</span>
         <span class="font-bold font-mono" id="steeze-counter">318</span>
         <span class="text-[10px] text-slate-400 font-mono hidden sm:inline">STEEZE</span>
       </button>
 
       <!-- "Maintain Your Steeze" celebration action -->
       <button onclick="maintainYourSteezeGrand()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-teal-400 via-mint-400 to-emerald-300 hover:from-teal-300 hover:to-emerald-200 text-slate-950 font-deck font-bold text-xs uppercase tracking-wider shadow-lg shadow-teal-500/30 active:scale-95 transition flex items-center gap-1.5">
-        <i class="fas fa-wand-magic-sparkles text-xs"></i>
+        <span aria-hidden="true">✦</span>
         <span>Maintain Your Steeze</span>
       </button>
 
       <!-- Quick Copy Phone & Email -->
       <button onclick="copyDeckContact('abhijithanirudhan0032@gmail.com', 'Email copied!')" class="p-2 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs transition" title="Copy Email">
-        <i class="far fa-envelope"></i>
+        <span aria-hidden="true">✉</span>
       </button>
 
       <button onclick="copyDeckContact('+917510547884', 'Phone number copied!')" class="p-2 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs transition" title="Copy Phone">
-        <i class="fas fa-phone-alt"></i>
+        <span aria-hidden="true">☎</span>
       </button>
 
       <!-- Top Jump -->
       <a href="#hero-slide" class="p-2 rounded-xl bg-teal-950/80 hover:bg-teal-900 border border-teal-500/30 text-teal-300 text-xs transition" title="Top of Deck">
-        <i class="fas fa-arrow-up"></i>
+        <span aria-hidden="true">↑</span>
       </a>
 
     </div>
