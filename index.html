@@ -96,6 +96,7 @@
     /* Override the former rounded neon UI so every module reads as a printed panel. */
     header { background: rgba(224, 223, 216, .87) !important; border-color: rgba(3, 53, 66, .2) !important; color: var(--board-deep); }
     header .font-deck, header .text-white { color: var(--board-deep) !important; }
+    header .font-heading { color: #edf0df !important; }
     header [class*="text-teal"], header [class*="text-slate"] { color: #25616a !important; }
     header [class*="rounded"] { border-radius: 0 !important; }
     header [class*="bg-gradient"], header a[href^="mailto"] { background: #064653 !important; color: #edf0df !important; box-shadow: 4px 4px 0 rgba(4,45,54,.16) !important; }
@@ -105,7 +106,11 @@
     .deck-slide [class*="border-teal"] { border-color: rgba(174, 216, 209, .28) !important; }
     .deck-slide [class*="text-teal"], .deck-slide [class*="text-emerald"] { color: #b8d8d1 !important; }
     .deck-slide [class*="bg-gradient-to-r"] { background: #9ec5bd !important; color: #073b45 !important; box-shadow: none !important; }
-    .deck-slide h1, .deck-slide h2, .deck-slide h3, .deck-slide .font-heading { font-family: 'Arial Narrow', Arial, sans-serif !important; letter-spacing: -.025em; }
+    .deck-slide h1, .deck-slide h2, .deck-slide h3, .deck-slide h4, .deck-slide h5, .deck-slide h6, .deck-slide .font-heading, .deck-slide .font-deck {
+      color: #f1f1df !important;
+      font-family: 'Arial Narrow', Arial, sans-serif !important;
+      letter-spacing: -.025em;
+    }
     #hero-slide { min-height: 570px; }
     #hero-slide:after { content: ''; position: absolute; width: 58%; height: 115%; right: -19%; bottom: -42%; background: radial-gradient(ellipse, rgba(106,181,188,.18), transparent 65%); pointer-events: none; }
     #hero-slide .deck-title-large { color: #edf0df !important; font-weight: 700; }
