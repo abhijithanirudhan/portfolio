@@ -16,7 +16,7 @@
   <style>
     /* Graphic portfolio board — adapted from the supplied reference. */
     :root {
-      --board-paper: #bfc1bb;
+      --board-paper: #050809;
       --board-ink: #ecf0df;
       --board-teal: #064653;
       --board-deep: #023542;
@@ -28,10 +28,10 @@
     body {
       background-color: var(--board-paper);
       background-image:
-        radial-gradient(ellipse at 12% 8%, rgba(245,246,238,.54), transparent 28%),
-        radial-gradient(ellipse at 88% 80%, rgba(64,72,69,.18), transparent 35%),
-        repeating-linear-gradient(105deg, rgba(40,50,48,.055) 0 1px, transparent 1px 5px),
-        linear-gradient(110deg, #aeb2ad 0%, #d1d2ca 46%, #aaaead 100%);
+        radial-gradient(ellipse at 12% 8%, rgba(20, 77, 82, .28), transparent 34%),
+        radial-gradient(ellipse at 88% 80%, rgba(2, 33, 41, .52), transparent 38%),
+        repeating-linear-gradient(105deg, rgba(151, 190, 185, .018) 0 1px, transparent 1px 5px),
+        linear-gradient(135deg, #030607 0%, #071215 49%, #020506 100%);
       background-attachment: fixed;
       color: var(--board-ink);
       font-family: Arial, sans-serif;
@@ -95,10 +95,10 @@
     ::-webkit-scrollbar-thumb:hover { background: #023542; }
 
     /* Override the former rounded neon UI so every module reads as a printed panel. */
-    header { background: rgba(194, 199, 192, .92) !important; border-color: rgba(3, 53, 66, .28) !important; color: var(--board-deep); }
-    header .font-deck, header .text-white { color: var(--board-deep) !important; }
+    header { background: rgba(3, 17, 21, .92) !important; border-color: rgba(132, 190, 184, .25) !important; color: #edf0df; }
+    header .font-deck, header .text-white { color: #edf0df !important; }
     header .font-heading { color: #edf0df !important; }
-    header [class*="text-teal"], header [class*="text-slate"] { color: #25616a !important; }
+    header [class*="text-teal"], header [class*="text-slate"] { color: #a7cbc5 !important; }
     header [class*="rounded"] { border-radius: 0 !important; }
     header [class*="bg-gradient"], header a[href^="mailto"] { background: #064653 !important; color: #edf0df !important; box-shadow: 4px 4px 0 rgba(4,45,54,.16) !important; }
     main { max-width: 82rem !important; }
