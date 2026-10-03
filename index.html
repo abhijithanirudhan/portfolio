@@ -16,7 +16,7 @@
   <style>
     /* Graphic portfolio board — adapted from the supplied reference. */
     :root {
-      --board-paper: #dfded7;
+      --board-paper: #bfc1bb;
       --board-ink: #ecf0df;
       --board-teal: #064653;
       --board-deep: #023542;
@@ -28,10 +28,10 @@
     body {
       background-color: var(--board-paper);
       background-image:
-        radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.72), transparent 28%),
-        radial-gradient(ellipse at 88% 80%, rgba(120,115,104,.16), transparent 35%),
-        repeating-linear-gradient(105deg, rgba(70,70,65,.025) 0 1px, transparent 1px 5px),
-        linear-gradient(110deg, #d4d3cc 0%, #efeee8 46%, #c9c8c1 100%);
+        radial-gradient(ellipse at 12% 8%, rgba(245,246,238,.54), transparent 28%),
+        radial-gradient(ellipse at 88% 80%, rgba(64,72,69,.18), transparent 35%),
+        repeating-linear-gradient(105deg, rgba(40,50,48,.055) 0 1px, transparent 1px 5px),
+        linear-gradient(110deg, #aeb2ad 0%, #d1d2ca 46%, #aaaead 100%);
       background-attachment: fixed;
       color: var(--board-ink);
       font-family: Arial, sans-serif;
@@ -95,7 +95,7 @@
     ::-webkit-scrollbar-thumb:hover { background: #023542; }
 
     /* Override the former rounded neon UI so every module reads as a printed panel. */
-    header { background: rgba(224, 223, 216, .87) !important; border-color: rgba(3, 53, 66, .2) !important; color: var(--board-deep); }
+    header { background: rgba(194, 199, 192, .92) !important; border-color: rgba(3, 53, 66, .28) !important; color: var(--board-deep); }
     header .font-deck, header .text-white { color: var(--board-deep) !important; }
     header .font-heading { color: #edf0df !important; }
     header [class*="text-teal"], header [class*="text-slate"] { color: #25616a !important; }
@@ -106,6 +106,8 @@
     .deck-slide [class*="bg-teal-950"], .deck-slide [class*="bg-[#031"], .deck-slide [class*="bg-[#041"], .deck-slide [class*="bg-[#020"] { background-color: rgba(0, 35, 44, .65) !important; }
     .deck-slide [class*="border-teal"] { border-color: rgba(174, 216, 209, .28) !important; }
     .deck-slide [class*="text-teal"], .deck-slide [class*="text-emerald"] { color: #b8d8d1 !important; }
+    .deck-slide [class*="text-slate-300"] { color: #d8e5de !important; }
+    .deck-slide [class*="text-slate-400"] { color: #b3ccc5 !important; }
     .deck-slide [class*="bg-gradient-to-r"] { background: #9ec5bd !important; color: #073b45 !important; box-shadow: none !important; }
     .deck-slide h1, .deck-slide h2, .deck-slide h3, .deck-slide h4, .deck-slide h5, .deck-slide h6, .deck-slide .font-heading, .deck-slide .font-deck {
       color: #f1f1df !important;
