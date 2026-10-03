@@ -35,6 +35,7 @@
       background-attachment: fixed;
       color: var(--board-ink);
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
     /* Deck presentation slide frame */
@@ -118,7 +119,22 @@
 
     @media (max-width: 640px) {
       main { padding-left: 1rem !important; padding-right: 1rem !important; }
-      #hero-slide { min-height: 500px; }
+      header > div { height: auto !important; min-height: 4rem; }
+      header button { display: none !important; }
+      #hero-slide { min-height: 0 !important; }
+      #hero-slide .relative.my-4 { min-height: 390px; margin-top: 1rem; margin-bottom: 1rem; flex-grow: 0; }
+      /* On phones, keep the avatar in the hero's normal layout flow. This stops
+         its canvas from escaping above the panel and leaving a blank black area. */
+      #character-stage {
+        position: relative !important;
+        inset: auto !important;
+        min-height: 300px;
+        justify-content: flex-end !important;
+        padding-top: 2.5rem;
+      }
+      #avatar-speech { top: 0.25rem !important; max-width: calc(100vw - 3.5rem); text-align: center; }
+      #abhi-pet-slot { margin-top: 0 !important; transform: scale(.88); transform-origin: center bottom; }
+      #steeze-status-badge { margin-top: -1rem; }
     }
   </style>
 </head>
