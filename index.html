@@ -116,6 +116,7 @@
     #hero-slide:after { content: ''; position: absolute; width: 58%; height: 115%; right: -19%; bottom: -42%; background: radial-gradient(ellipse, rgba(106,181,188,.18), transparent 65%); pointer-events: none; }
     #hero-slide .deck-title-large { color: #edf0df !important; font-weight: 700; }
     .fixed.bottom-0 > .deck-slide { border-radius: 0; box-shadow: 0 -5px 16px rgba(0,0,0,.2); }
+    aside.fixed { z-index: 60 !important; }
 
     @media (max-width: 640px) {
       main { padding-left: 1rem !important; padding-right: 1rem !important; }
@@ -135,6 +136,23 @@
       #avatar-speech { top: 0.25rem !important; max-width: calc(100vw - 3.5rem); text-align: center; }
       #abhi-pet-slot { margin-top: 0 !important; transform: scale(.88); transform-origin: center bottom; }
       #steeze-status-badge { margin-top: -1rem; }
+      /* Keep the floating actions within a 320px-wide viewport. */
+      aside.fixed {
+        bottom: calc(.75rem + env(safe-area-inset-bottom)) !important;
+        width: calc(100% - 1.5rem) !important;
+        max-width: 27rem !important;
+      }
+      aside.fixed > .deck-slide {
+        display: flex !important;
+        padding: .5rem !important;
+        background: #023542 !important;
+        border: 1px solid rgba(225, 240, 223, .55) !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, .38) !important;
+      }
+      aside.fixed > .deck-slide > button[onclick^="copyDeckContact"],
+      aside.fixed > .deck-slide > a { display: none !important; }
+      aside.fixed > .deck-slide > button:first-child { flex: 0 0 auto; }
+      aside.fixed > .deck-slide > button:nth-child(2) { flex: 1 1 auto; justify-content: center; }
     }
   </style>
 </head>
