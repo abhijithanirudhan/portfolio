@@ -5,22 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abhijith A — Full-Stack Developer & AI Integrations | Portfolio Deck</title>
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Locally compiled Tailwind: works without an internet connection. -->
+  <link rel="stylesheet" href="assets/tailwind.css">
   
-  <!-- Google Fonts: Space Grotesk, Outfit, and Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <!-- System fonts keep this static site independent of third-party font CDNs. -->
   
-  <!-- FontAwesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Canvas Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <script>
-    tailwind.config = {
+    /* Kept as a no-op-safe configuration for environments that inject Tailwind. */
+    if (window.tailwind) window.tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
@@ -38,10 +33,10 @@
               rose: '#f43f5e'
             }
           },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            heading: ['Outfit', 'sans-serif'],
-            deck: ['Space Grotesk', 'sans-serif']
+  fontFamily: {
+            sans: ['Arial', 'sans-serif'],
+            heading: ['Arial Narrow', 'Arial', 'sans-serif'],
+            deck: ['Arial Narrow', 'Arial', 'sans-serif']
           },
           boxShadow: {
             'deck-card': '0 20px 40px -15px rgba(1, 10, 12, 0.7), 0 0 20px rgba(56, 217, 169, 0.08)',
@@ -53,44 +48,54 @@
   </script>
 
   <style>
+    /* Graphic portfolio board — adapted from the supplied reference. */
+    :root {
+      --board-paper: #dfded7;
+      --board-ink: #ecf0df;
+      --board-teal: #064653;
+      --board-deep: #023542;
+      --board-aqua: #62aeb8;
+      --board-shadow: rgba(18, 27, 27, .36);
+    }
+
     /* Texture and deep ocean teal presentation wall styling */
     body {
-      background-color: #041215;
-      background-image: 
-        radial-gradient(circle at 10% 15%, rgba(56, 217, 169, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(18, 184, 134, 0.09) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(10, 50, 59, 0.4) 0%, transparent 80%),
-        linear-gradient(180deg, #020b0d 0%, #05191d 50%, #031013 100%);
+      background-color: var(--board-paper);
+      background-image:
+        radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.72), transparent 28%),
+        radial-gradient(ellipse at 88% 80%, rgba(120,115,104,.16), transparent 35%),
+        repeating-linear-gradient(105deg, rgba(70,70,65,.025) 0 1px, transparent 1px 5px),
+        linear-gradient(110deg, #d4d3cc 0%, #efeee8 46%, #c9c8c1 100%);
       background-attachment: fixed;
-      color: #e6f1f2;
-      font-family: 'Inter', sans-serif;
+      color: var(--board-ink);
+      font-family: Arial, sans-serif;
     }
 
     /* Deck presentation slide frame */
     .deck-slide {
-      background: linear-gradient(145deg, #0b3741 0%, #07272e 60%, #051d23 100%);
-      border: 1px solid rgba(56, 217, 169, 0.24);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at 15% 12%, rgba(100,181,190,.16), transparent 30%), linear-gradient(135deg, #075260 0%, var(--board-deep) 72%, #02323d 100%);
+      border: 0;
+      box-shadow: 0 12px 15px -8px var(--board-shadow), 0 24px 25px -19px rgba(0,0,0,.42);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      border-radius: 1.25rem;
+      border-radius: 0;
       overflow: hidden;
     }
     .deck-slide:hover {
-      border-color: rgba(56, 217, 169, 0.45);
-      transform: translateY(-4px);
-      box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(56, 217, 169, 0.16);
+      transform: translateY(-5px) rotate(-.15deg);
+      box-shadow: 0 20px 22px -10px rgba(7, 22, 23, .52), 0 30px 32px -22px rgba(0,0,0,.48);
     }
 
     /* Architectural Typography */
     .deck-title-large {
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: -0.04em;
-      line-height: 0.88;
+      font-family: 'Arial Narrow', Arial, sans-serif;
+      letter-spacing: -0.065em;
+      line-height: .78;
+      text-transform: uppercase;
     }
     .text-mint-glow {
-      color: #38d9a9;
-      text-shadow: 0 0 20px rgba(56, 217, 169, 0.35);
+      color: #dce7ce;
+      text-shadow: none;
     }
 
     /* Floating speech balloon animation */
@@ -118,9 +123,32 @@
 
     /* Scrollbar styling */
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #030f12; }
-    ::-webkit-scrollbar-thumb { background: #0b4550; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #38d9a9; }
+    ::-webkit-scrollbar-track { background: #cccbc4; }
+    ::-webkit-scrollbar-thumb { background: #075260; border-radius: 0; }
+    ::-webkit-scrollbar-thumb:hover { background: #023542; }
+
+    /* Override the former rounded neon UI so every module reads as a printed panel. */
+    header { background: rgba(224, 223, 216, .87) !important; border-color: rgba(3, 53, 66, .2) !important; color: var(--board-deep); }
+    header .font-deck, header .text-white { color: var(--board-deep) !important; }
+    header [class*="text-teal"], header [class*="text-slate"] { color: #25616a !important; }
+    header [class*="rounded"] { border-radius: 0 !important; }
+    header [class*="bg-gradient"], header a[href^="mailto"] { background: #064653 !important; color: #edf0df !important; box-shadow: 4px 4px 0 rgba(4,45,54,.16) !important; }
+    main { max-width: 82rem !important; }
+    .deck-slide [class*="rounded"] { border-radius: 0 !important; }
+    .deck-slide [class*="bg-teal-950"], .deck-slide [class*="bg-[#031"], .deck-slide [class*="bg-[#041"], .deck-slide [class*="bg-[#020"] { background-color: rgba(0, 35, 44, .65) !important; }
+    .deck-slide [class*="border-teal"] { border-color: rgba(174, 216, 209, .28) !important; }
+    .deck-slide [class*="text-teal"], .deck-slide [class*="text-emerald"] { color: #b8d8d1 !important; }
+    .deck-slide [class*="bg-gradient-to-r"] { background: #9ec5bd !important; color: #073b45 !important; box-shadow: none !important; }
+    .deck-slide h1, .deck-slide h2, .deck-slide h3, .deck-slide .font-heading { font-family: 'Arial Narrow', Arial, sans-serif !important; letter-spacing: -.025em; }
+    #hero-slide { min-height: 570px; }
+    #hero-slide:after { content: ''; position: absolute; width: 58%; height: 115%; right: -19%; bottom: -42%; background: radial-gradient(ellipse, rgba(106,181,188,.18), transparent 65%); pointer-events: none; }
+    #hero-slide .deck-title-large { color: #edf0df !important; font-weight: 700; }
+    .fixed.bottom-0 > .deck-slide { border-radius: 0; box-shadow: 0 -5px 16px rgba(0,0,0,.2); }
+
+    @media (max-width: 640px) {
+      main { padding-left: 1rem !important; padding-right: 1rem !important; }
+      #hero-slide { min-height: 500px; }
+    }
   </style>
 </head>
 <body class="min-h-screen relative flex flex-col selection:bg-teal-500 selection:text-black">
@@ -999,12 +1027,45 @@
       }, 1200);
     }
 
-    // Steeze incrementer counter
-    var steezeScore = 318;
-    function incrementSteeze() {
-      steezeScore++;
+    // Steeze counter persistence. GitHub Pages is static/read-only, so this stores
+    // a JSON record in the visitor's browser rather than trying to write a file.
+    var STEEZE_STORAGE_KEY = 'abhijith-portfolio.steeze';
+    var DEFAULT_STEEZE_SCORE = 318;
+
+    function loadSteeze() {
+      try {
+        var saved = JSON.parse(window.localStorage.getItem(STEEZE_STORAGE_KEY));
+        return saved && Number.isSafeInteger(saved.score) && saved.score >= 0
+          ? saved.score
+          : DEFAULT_STEEZE_SCORE;
+      } catch (error) {
+        return DEFAULT_STEEZE_SCORE;
+      }
+    }
+
+    function saveSteeze() {
+      try {
+        window.localStorage.setItem(STEEZE_STORAGE_KEY, JSON.stringify({
+          score: steezeScore,
+          updatedAt: new Date().toISOString()
+        }));
+      } catch (error) {
+        // The counter still works when a browser blocks local storage.
+      }
+    }
+
+    function renderSteeze() {
       var el = document.getElementById('steeze-counter');
       if (el) el.innerText = steezeScore;
+    }
+
+    var steezeScore = loadSteeze();
+    renderSteeze();
+
+    function incrementSteeze() {
+      steezeScore++;
+      saveSteeze();
+      renderSteeze();
       triggerAvatarAction('steeze', 'Steeze boosted to ' + steezeScore + '! Pure architectural flow. 😎', '😎', 'Steeze Peak');
       showDeckToast('Steeze boosted! Keep building!');
     }
